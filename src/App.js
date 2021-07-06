@@ -1,8 +1,8 @@
 import './App.css';
 import React from 'react';
 import { Route, Switch, BrowserRouter } from 'react-router-dom';
-import Movies from './pages/Movies';
 import SingleMovies from './pages/SingleMovie';
+import PersistentDrawerLeft from './PersistentDrawerLeft';
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
           <SingleMovies />
         </Route>
         <Route path="/">
-          <Movies />
+          <PersistentDrawerLeft />
         </Route>
       </Switch>
     </BrowserRouter>
