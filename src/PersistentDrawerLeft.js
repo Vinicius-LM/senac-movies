@@ -131,10 +131,12 @@ const PersistentDrawerLeft = () => {
         </div>
         <Divider />
         <List>
-			<ListItem button key="Home">
-				<ListItemIcon><HomeIcon /></ListItemIcon>
-				<ListItemText primary="Home" />
-			</ListItem>
+          <ListItem button key="Home">
+            <ListItemIcon>
+              <HomeIcon />
+            </ListItemIcon>
+            <ListItemText primary="Home" />
+          </ListItem>
         </List>
       </Drawer>
       <main
@@ -145,7 +147,7 @@ const PersistentDrawerLeft = () => {
         <div className={classes.drawerHeader} />
 
         <BuscaForm />
-		
+
 
       </main>
     </div>
