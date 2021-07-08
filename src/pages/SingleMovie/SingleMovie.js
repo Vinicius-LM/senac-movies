@@ -22,19 +22,24 @@ import HomeIcon from '@material-ui/icons/HomeOutlined';
 
 const useStyles = makeStyles((theme) => ({
 
+
+
     form: {
         display: 'flex',
         flexDirection: 'column',
     },
+
     root: {
         display: 'flex',
     },
+
     appBar: {
         transition: theme.transitions.create(['margin', 'width'], {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
         }),
     },
+
     appBarShift: {
         width: `calc(100% - ${drawerWidth}px)`,
         marginLeft: drawerWidth,
@@ -43,27 +48,32 @@ const useStyles = makeStyles((theme) => ({
             duration: theme.transitions.duration.enteringScreen,
         }),
     },
+
     menuButton: {
         marginRight: theme.spacing(2),
     },
+
     hide: {
         display: 'none',
     },
+
     drawer: {
         width: drawerWidth,
         flexShrink: 0,
     },
+
     drawerPaper: {
         width: drawerWidth,
     },
+
     drawerHeader: {
         display: 'flex',
         alignItems: 'center',
         padding: theme.spacing(0, 1),
-        // necessary for content to be below app bar
         ...theme.mixins.toolbar,
         justifyContent: 'flex-end',
     },
+
     content: {
         flexGrow: 1,
         padding: theme.spacing(3),
@@ -73,6 +83,7 @@ const useStyles = makeStyles((theme) => ({
         }),
         marginLeft: -drawerWidth,
     },
+
     contentShift: {
         transition: theme.transitions.create('margin', {
             easing: theme.transitions.easing.easeOut,
@@ -80,6 +91,7 @@ const useStyles = makeStyles((theme) => ({
         }),
         marginLeft: 0,
     },
+
 }));
 
 const drawerWidth = 240;
@@ -141,7 +153,7 @@ export default function SingleMovieDrawer() {
                 <List>
                     <ListItem button key={"Home"}>
                         <ListItemIcon>
-                            <HomeIcon onClick />
+                            <HomeIcon />
                         </ListItemIcon>
                         <ListItemText primary={"Home"} />
                     </ListItem>
@@ -156,8 +168,7 @@ export default function SingleMovieDrawer() {
                 <div className={classes.drawerHeader} />
                 <form className={classes.div}>
                     <div>
-
-                        <img src={query.get('Poster')} />
+                        <img src={query.get('Poster')} alt="Poster do filme" />
                     </div>
                     <Link to="/" className="thLink">
                         <Button
