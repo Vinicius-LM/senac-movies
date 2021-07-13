@@ -22,8 +22,6 @@ import HomeIcon from '@material-ui/icons/HomeOutlined';
 
 const useStyles = makeStyles((theme) => ({
 
-
-
     form: {
         display: 'flex',
         flexDirection: 'column',

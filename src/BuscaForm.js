@@ -5,7 +5,6 @@ import TextField from '@material-ui/core/TextField';
 import BuscaItem from './BuscaItem'
 import { movies } from './data/movies';
 import { Link } from 'react-router-dom';
-
 import { api } from './services';
 
 
@@ -22,18 +21,6 @@ const useStyles = makeStyles((theme) => ({
 
 	titulo: {
 		flexGrow: 1,
-	},
-
-	h5: {
-		textDecorationStyle: 'none',
-	},
-
-	h6: {
-		textDecorationStyle: 'none',
-	},
-
-	p: {
-		textDecorationStyle: 'none',
 	},
 
 	resultado: {
@@ -56,13 +43,29 @@ export default function BuscaForm() {
 	const [initialMovies, setInitialMovies] = useState(movies);
 	const [error, setError] = useState(false);
 
+	const removeDuplicated = (array) => {
+		const filteredArr = array.reduce((accumulator, current) => {
+			const result = accumulator.find(item => item.Title === current.Title);
+			if (!result) {
+				return accumulator.concat([current]);
+			} else {
+				return accumulator;
+			}
+		}, []);
+		return filteredArr;
+	}
+
 	const getMoviesFromApi = (event) => {
 		event.preventDefault();
 		if (search.length > 2) {
 			setError(false);
 			api.get(`/?apikey=67f2f4c&&s=${search}`).then((response) => {
-				setMoviesFiltered(response.data.Search);
-				setInitialMovies([...initialMovies, ...response.data.Search])
+				if (response.data.Response != "False") {
+					setMoviesFiltered(response.data.Search);
+					setInitialMovies(removeDuplicated([...initialMovies, ...response.data.Search])
+					)
+				}
+
 			});
 		}
 		else {
